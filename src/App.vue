@@ -9,15 +9,27 @@
       <div>
         <p class="location">Malaysia > Federal Territory of Kuala Lumpur</p>
         <h1 class="heading">Federal Territory of Kuala Lumpur</h1>
-        <p class="sub-heading">
-          Find a Room for rent, Apartment, House, Condo, Studio, duplex, or
-          shared
-          <br />
-          accommodation in Federal Territory of Kuala Lumpur.
-        </p>
+        <div class="second-section">
+          <p class="sub-heading">
+            Find a Room for rent, Apartment, House, Condo, Studio, duplex, or
+            shared
+            <br />
+            accommodation in Federal Territory of Kuala Lumpur.
+          </p>
+          <div class="buttons">
+            <button class="btn show-btn">Show all</button>
+            <button @click="prev()" class="btn arrow">
+              <font-awesome-icon icon="fa-solid fa-chevron-left" />
+            </button>
+            <button @click="next()" class="btn arrow">
+              <font-awesome-icon icon="fa-solid fa-chevron-right" />
+            </button>
+          </div>
+        </div>
       </div>
-      <div class="small-cards">
+      <div class="small-cards" id="small-cards">
         <card
+          class="item"
           v-for="(item, index) in cards"
           v-bind:key="index"
           v-bind:head="item.head"
@@ -33,6 +45,7 @@
 <script>
 import card from "./components/card.vue";
 import filterBtn from "./components/elements/filterBtn.vue";
+
 export default {
   name: "App",
   components: {
@@ -89,6 +102,19 @@ export default {
       ],
     };
   },
+  methods: {
+    next() {
+      let section = document.getElementById("small-cards");
+      let item = section.getElementsByClassName("item");
+      section.append(item[0]);
+    },
+    prev() {
+      console.log('sdjf');
+      let section = document.getElementById("small-cards");
+      let item = section.getElementsByClassName("item");
+      section.prepend(item[item.length-1]);
+    },
+  },
 };
 </script>
 
@@ -143,8 +169,42 @@ export default {
   line-height: 20px;
   color: #282828;
 }
-.cards{
+.cards {
   margin-top: 39px;
+}
+.second-section {
+  display: flex;
+  justify-content: space-between;
+}
+.buttons {
+  display: flex;
+  /* justify-content: space-around; */
+}
+.buttons .btn {
+  margin-top: 0px;
+  margin-bottom: 0px;
+  height: 35px;
+  padding: 10px 10px 10px 10px;
+  width: auto;
+  left: 0px;
+  top: 0px;
+  border-radius: 100px;
+  background-color: #d9d9d900;
+  border: 0.5px solid #686868;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 16px;
+}
+.buttons .btn:hover {
+  background-color: #d9d9d986;
+}
+.show-btn {
+  margin-right: 44px;
+}
+.arrow {
+  margin-right: 12px;
 }
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
 </style>
