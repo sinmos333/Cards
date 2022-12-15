@@ -117,22 +117,26 @@ export default {
   methods: {
     next() {
       let section = document.getElementById("small-cards");
-      let item = section.getElementsByClassName("item");
-      let i = 0;
-      while (i < 4) {
-        section.append(item[0]);
-        i++;
-      }
+      // let item = section.getElementsByClassName("item");
+      // let i = 0;
+      // while (i < 4) {
+      //   section.append(item[0]);
+      //   i++;
+      // }
+      //   section.style.transition='all 2s'
+      section.scrollLeft +=250
     },
     prev() {
       let section = document.getElementById("small-cards");
-      let item = section.getElementsByClassName("item");
-      let i = 0;
-      while (i<4) {
-        section.prepend(item[item.length - 1]);
-        i++;
-      }
+    //   let item = section.getElementsByClassName("item");
+    //   let i = 0;
+    //   while (i<4) {
+    //     section.prepend(item[item.length - 1]);
+    //     i++;
+    //   }
+    section.scrollLeft -=250
     },
+    
   },
 };
 </script>
@@ -224,6 +228,7 @@ export default {
 }
 .arrow {
   margin-right: 12px;
+  transition: 0.4s;
 }
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
 </style>
