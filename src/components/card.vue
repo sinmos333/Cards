@@ -21,7 +21,7 @@ export default {
 
 <style scoped>
 .card {
-  min-width: 256px;
+  min-width: 295px;
   height: 372px;
   border: solid 91ack 1px;
   overflow: hidden;
@@ -29,8 +29,8 @@ export default {
   border-radius: 8px;
 }
 .card-img {
-  width: 256px;
-  height: 256px;
+  width: 295px;
+  height: 295px;
 }
 .title {
   margin: 0px;

@@ -124,7 +124,7 @@ export default {
       //   i++;
       // }
       //   section.style.transition='all 2s'
-      section.scrollLeft +=250
+      section.scrollLeft +=1250
     },
     prev() {
       let section = document.getElementById("small-cards");
@@ -134,7 +134,7 @@ export default {
     //     section.prepend(item[item.length - 1]);
     //     i++;
     //   }
-    section.scrollLeft -=250
+    section.scrollLeft -=1250
     },
     
   },
@@ -228,7 +228,7 @@ export default {
 }
 .arrow {
   margin-right: 12px;
-  transition: 0.4s;
+  transition-delay: 0.4s;
 }
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
 </style>
