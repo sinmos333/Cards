@@ -64,37 +64,49 @@ export default {
       ],
       cards: [
         {
-          head: "Rooms",
+          head: "Rooms1",
           desc: "Single room Opposite Chinatown",
           listing: "8221 listings",
           img: "room.png",
         },
         {
-          head: "Studio",
+          head: "Studio2",
           desc: "Single room Opposite Chinatown",
           listing: "821 listings",
           img: "studio.png",
         },
         {
-          head: "Apartment/condo",
+          head: "Apartment/condo3",
           desc: "Single room Opposite Chinatown",
           listing: "3521 listings",
           img: "apartment.png",
         },
         {
-          head: "Landed House",
+          head: "Landed House4",
           desc: "Single room Opposite Chinatown",
           listing: "1221 listings",
           img: "landedHouse.png",
         },
         {
-          head: "Rooms",
+          head: "Rooms5",
           desc: "Single room Opposite Chinatown",
           listing: "8221 listings",
           img: "room.png",
         },
         {
-          head: "Rooms",
+          head: "Rooms6",
+          desc: "Single room Opposite Chinatown",
+          listing: "8221 listings",
+          img: "room.png",
+        },
+        {
+          head: "Rooms7",
+          desc: "Single room Opposite Chinatown",
+          listing: "8221 listings",
+          img: "room.png",
+        },
+        {
+          head: "Rooms8",
           desc: "Single room Opposite Chinatown",
           listing: "8221 listings",
           img: "room.png",
@@ -106,13 +118,20 @@ export default {
     next() {
       let section = document.getElementById("small-cards");
       let item = section.getElementsByClassName("item");
-      section.append(item[0]);
+      let i = 0;
+      while (i < 4) {
+        section.append(item[0]);
+        i++;
+      }
     },
     prev() {
-      console.log('sdjf');
       let section = document.getElementById("small-cards");
       let item = section.getElementsByClassName("item");
-      section.prepend(item[item.length-1]);
+      let i = 0;
+      while (i<4) {
+        section.prepend(item[item.length - 1]);
+        i++;
+      }
     },
   },
 };
