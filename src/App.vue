@@ -29,7 +29,7 @@
       </div>
       <div class="small-cards" id="small-cards">
         <card
-          class="item"
+          class="item hidden"
           v-for="(item, index) in cards"
           v-bind:key="index"
           v-bind:head="item.head"
@@ -51,6 +51,21 @@ export default {
   components: {
     card,
     filterBtn,
+  },
+  mounted() {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("show");
+        } else {
+          entry.target.classList.remove("show");
+        }
+      });
+    });
+    const hiddenElements = document.querySelectorAll(".hidden");
+    hiddenElements.forEach((el) => {
+      observer.observe(el);
+    });
   },
   data() {
     return {
@@ -124,19 +139,18 @@ export default {
       //   i++;
       // }
       //   section.style.transition='all 2s'
-      section.scrollLeft +=1250
+      section.scrollLeft += 1250;
     },
     prev() {
       let section = document.getElementById("small-cards");
-    //   let item = section.getElementsByClassName("item");
-    //   let i = 0;
-    //   while (i<4) {
-    //     section.prepend(item[item.length - 1]);
-    //     i++;
-    //   }
-    section.scrollLeft -=1250
+      //   let item = section.getElementsByClassName("item");
+      //   let i = 0;
+      //   while (i<4) {
+      //     section.prepend(item[item.length - 1]);
+      //     i++;
+      //   }
+      section.scrollLeft -= 1250;
     },
-    
   },
 };
 </script>
@@ -229,6 +243,13 @@ export default {
 .arrow {
   margin-right: 12px;
   transition-delay: 0.4s;
+}
+.hidden{
+  opacity:0;
+  transition: all 1s;
+}
+.show{
+  opacity:1;
 }
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
 </style>
